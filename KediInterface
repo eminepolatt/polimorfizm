@@ -1,0 +1,29 @@
+//POLİMORFİZM İNTERFACE METODLAR  
+
+interface hayvan{//sayut yapılardır çoklu kalıtımı destekler
+  public void yer(); //interfacein içindeki bütün metodlar soyuttur 
+//ama başına abstract yazmak gerekmez
+//new ile türetilemezler  
+  int x=10;//değişkenler final özelliğine sahiptir
+}
+class etcil{
+    public void etyer(){
+        System.out.println("kedi et yer mi");
+    }
+}
+class kedi extends etcil implements hayvan{///interface kalıtımda implements kullanılır
+//kedinin hem classtan hem intercfaceden kalıtım alması
+//için bu şekilde yazılır. önce class sonra interface
+    public void yer(){
+      System.out.println("kedi et yer");
+  }  
+}
+public class kediIinterface  {
+    public static void main(String[] args) {
+        kedi british =new kedi();
+        british.yer(); british.etyer();//ikisi de çıktı
+        //çoklu kalıtım oldu
+        System.out.println(hayvan.x);
+}
+
+}
