@@ -1,0 +1,86 @@
+
+package polimorfizm;
+class Calisan {
+  public String pozisyon ;
+  public void calis() {}
+}
+class Mudur extends Calisan {
+  public Mudur () { // yapılandırıcı
+      pozisyon = "Mudur" ;
+  }
+  public void calis() { // iptal etme (override)
+      System.out.println("Mudur Calisiyor");
+  }
+}
+class GenelMudur extends Mudur {
+  public GenelMudur () { // yapılandırıcı
+     pozisyon = "GenelMudur" ;
+  }
+  public void calis() { // iptal etme (override)
+      System.out.println("GenelMudur Calisiyor");
+  }
+  public void toplantiYonet() { 
+      System.out.println("GenelMudur toplanti yonetiyor");
+  } 
+}
+class Programci extends Calisan {
+  public Programci() { // yapılandırıcı
+      pozisyon = "Programci" ;
+  }
+  public void calis() { // iptal etme (override)
+      System.out.println("Programci Calisiyor");
+  }
+}
+class AnalizProgramci extends Programci {
+  public AnalizProgramci() { // yapılandırıcı
+      pozisyon = "AnalizProgramci" ;
+  }
+  public void analizYap() {
+      System.out.println("Analiz Yapiliyor");
+  } 
+}
+class SistemProgramci extends Programci {
+  public SistemProgramci() { // yapılandırıcı
+      pozisyon = "SistemProgramci" ;
+  }
+  public void sistemIncele() {
+      System.out.println("Sistem Inceleniyor");
+  } 
+}
+
+
+class Pazarlamaci extends Calisan {
+  public Pazarlamaci() { // yapılandırıcı
+      pozisyon = "Pazarlamaci" ;
+  }
+  public void calis() { // iptal etme (override)
+      System.out.println("Pazarlamaci Calisiyor");
+  }
+}
+class Sekreter extends Calisan {
+  public Sekreter() { // yapılandırıcı
+      pozisyon = "Sekreter" ;
+  }
+  public void calis() { // iptal etme (override)
+      System.out.println("Sekreter Calisiyor");
+ }
+}
+
+public class BuyukIsYeri {
+  public static void mesaiBasla(Calisan[] c ) {
+      for (int i = 0 ; i < c.length ; i++) {
+        c[i].calis(); // ! Dikkat !
+      }
+  }
+  public static void main(String args[]) {
+   Calisan[] c = new Calisan[7];
+   c[0]=new Calisan(); //yukarı cevirim gerekmiyor
+   c[1]=new Programci(); //yukarı cevirim (upcasting)
+   c[2]=new Pazarlamaci(); // yukarı cevirim (upcasting)
+   c[3]=new Mudur(); // yukarı cevirim (upcasting)
+   c[4]=new GenelMudur(); // yukarı cevirim (upcasting)
+   c[5]=new AnalizProgramci(); // yukarı cevirim (upcasting)
+   c[6]=new SistemProgramci(); // yukarı cevirim (upcasting)
+   mesaiBasla(c);
+  }
+}
