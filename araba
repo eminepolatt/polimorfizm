@@ -1,0 +1,27 @@
+
+package polimorfizm;
+
+
+
+ abstract class ARABA{
+  public void yurur(){
+      System.out.println("araba yurur");
+  } 
+  public abstract void hizlidir();//soyut
+}
+abstract class sahin extends ARABA{
+public abstract void yavaslar();//soyut
+}
+public class polimorfizmAraba extends sahin{
+  public void yavaslar(){//somutlaştırdık
+      System.out.println("sahin yavaslar.");
+  }  
+  public void hizlidir(){//somutlaştırdık
+      System.out.println("araba hizlidir");
+  }
+    public static void main(String[] args) {
+     polimorfizmAraba x=new polimorfizmAraba();
+      x.hizlidir();  x.yavaslar(); x.yurur();
+    }
+}
+
