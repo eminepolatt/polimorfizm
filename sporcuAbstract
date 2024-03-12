@@ -1,0 +1,29 @@
+
+package polimorfizm;
+
+abstract class Sporcu {
+  public abstract void calis(); // soyut metod
+  public Sporcu() {    // constructor  metod
+      System.out.println("calis() cagrilmadan evvel");
+      calis(); // ! Dikkat !
+      System.out.println("calis() cagrildiktan sonra");
+  }
+}
+class Futbolcu extends Sporcu {
+  int antraman_sayisi = 4 ;
+  public void calis() { //soyut metodun gövdesi
+      System.out.println("Futbolcu calis() " + antraman_sayisi );
+  }
+  public Futbolcu() { //constructor metod
+      System.out.println("Futbolcu yapilandirici" );
+      calis();
+  }
+}
+
+public class Spor_abstract {
+      public static void main( String args[] ) {
+      Futbolcu f = new Futbolcu();
+      // Sporcu s = new Sporcu(); // ! Hata soyut sınıf !
+  }
+
+}
