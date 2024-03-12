@@ -1,0 +1,30 @@
+
+package polimorfizm;
+class Asker {
+ public void selamVer() {
+      System.out.println("Asker Selam verdi");
+ }
+} 
+class Er extends Asker {
+ public void selamVer() {
+      System.out.println("Er Selam verdi");
+ }
+}
+class Yuzbasi extends Asker {
+ public void selamVer() {
+      System.out.println("Yuzbasi Selam verdi");
+ }
+}
+public class AskErYuzbasi {
+ public static void hazirOl(Asker a) {
+      a.selamVer(); // ! Dikkat !
+ }
+ public static void main(String args[]) {
+      Asker a = new Asker();
+      Er e = new Er();
+      Yuzbasi y = new Yuzbasi();
+      hazirOl(a); // yukarı cevirim ! yok !
+      hazirOl(e); // yukarı cevirim (upcasting) 
+     hazirOl(y); // yukarı cevirim (upcasting)
+ }
+}
